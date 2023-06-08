@@ -1,0 +1,45 @@
+# 이미지를 저장시킬 백엔드 디렉토리
+
+file.dir: ./upload/
+#file.dir: /home/ubuntu/uploads/
+#file.dir: /home/jys/uploads/
+deepLearnFile.dir: /Users/son/Downloads/yolov5-master/spring_sended/
+#file.dir: /home/ubuntu/upload/
+#deepLearnFile.dir: /home/ubuntu/deeplearn/
+#file.dir: /home/jys/uploads/
+
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/market_v0?serverTimezone=UTC&characterEncoding=UTF-8
+    # market_v0: 스키마 이름
+    username: root
+    password: capstone
+
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+#    properties:
+#      hibernate:
+#        # 얘도 sql 문을 보여주지만 sout 으로 하기 때문에 않좋다.
+#        # show_sql: true
+#        format_sql: true
+  # native 에서 파일 업로드 크기 제한을 사실상 해제
+  servlet:
+    multipart:
+      max-file-size: 10GB
+      max-request-size: 10GB
+
+#logging:
+#  level:
+#    # hibernate 가 생성하는 sql 문을 모두 보여준다.
+#    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
+
+
+server:
+  address: 0.0.0.0
+  port: 8080
