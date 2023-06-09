@@ -34,10 +34,10 @@ public class KakaoPayService {
     private final MemberRepository memberRepository;
 
     static final String cid = "TC0ONETIME"; // 가맹점 테스트 코드
-    static final String admin_Key = "6be870a80ca53d5aabf353bed986653b"; // 공개 조심! 본인 애플리케이션의 어드민 키를 넣어주세요
+    static final String admin_Key = "aaa"; // 공개 조심! 본인 애플리케이션의 어드민 키를 넣어주세요
     private KakaoReadyResponse kakaoReady;
     /**
-     * 상품 이름, 상품 가격 , 구매자 ,판매자, 가맹점 주문 번호 = 부기마켓 = 886916,
+     * 상품 이름, 상품 가격 , 구매자 ,판매자, 가맹점 주문 번호 = 부기마켓
      */
     private String item_name;
     private Integer item_price;

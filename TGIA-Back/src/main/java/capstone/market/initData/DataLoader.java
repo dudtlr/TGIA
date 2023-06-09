@@ -129,6 +129,10 @@ public class DataLoader {
         Member brave = new Member("brave");
         brave.setUsername("용기");
 
+
+
+
+
         LocalDateTime now = LocalDateTime.now();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
@@ -314,17 +318,20 @@ public class DataLoader {
 
 
 
-        //구매목록 하나 만들기
+        // 방금방금
+        //구매목록 하나 만들기금
         // 멤버 a가올린 포스트를 멤버 b가 사면서 포스트에 구매 목록에 멤버가 멤버b로 바뀜
-/*        Purchased purchased = new Purchased();
+      /*  Purchased purchased = new Purchased();
         purchased.setMember(gunhee);
         purchasedRepository.save(purchased);
-        post1.setPurchased(purchased);*/
+        post1.setPurchased(purchased);
+        postRepository.savePost(post1);
 
-//        Purchased purchased2 = new Purchased();
-//        purchased2.setMember(memberC);
-//        purchasedRepository.save(purchased2);
-//        macBookPost.setPurchased(purchased2);
+        Purchased purchased2 = new Purchased();
+        purchased2.setMember(brave);
+        purchasedRepository.save(purchased2);
+       macBookPost.setPurchased(purchased2);*/
+
 
         new PostBuilder().setWhoPosted(gunhee)
                 .setTitle("영상편집 책 팝니다")
@@ -2738,7 +2745,7 @@ public class DataLoader {
                 .setLocationType(LocationType.상상관)
                 .build();
 
-        for (int i =0;i<1000;i++) {
+        for (int i =0;i<6;i++) {
             Post dummyPost = new Post();
             int randomIndex = random.nextInt(collegeTypes.length);
 
@@ -2788,8 +2795,9 @@ public class DataLoader {
 
             if (i %2 == 0) {
                 Purchased dummyPurchased = new Purchased();
-                dummyPurchased.setMember(dummyMemberForSale);
-                dummyPurchased.setPrice(dummyPost.getPrice());
+                dummyPurchased.setMember(brave);
+//                dummyPurchased.setPrice(dummyPost.getPrice());
+                dummyPurchased.setPrice(i);
                 dummyPurchased.setPostTitle(dummyPost.getPost_title());
                 dummyPurchased.setItem_name("얘들아 미안해 ㅠㅠ");
                 dummyPurchased.setQuantity(1);
@@ -2871,6 +2879,8 @@ public class DataLoader {
                 imageRepository.save(dummyImage);
             }
         }
+
+
     }
 
     private void setPostImageHard(String imageFilename, Post post) {
@@ -2946,6 +2956,7 @@ public class DataLoader {
 
         private TrackType trackType;
         private LocalDateTime createdDate;
+
 
 
         public PostBuilder setWhoPosted(Member whoPosted) {

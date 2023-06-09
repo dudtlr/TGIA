@@ -17,3 +17,15 @@
 1. cd TGIA-Web 으로 리액트 관리자 웹페이지 폴더로 이동
 2. npm install 로 node_modules 설치
 3. npm start 로 실행
+
+
+딥러닝 코드 실행법
+-------------
+1. 백엔드 코드의 application.yml 파일에서 경로를 아래처럼 다운받은 딥러닝 코드 위치로 수정합니다.
+   deepLearnFile.dir: /Users/son/Downloads/yolov5-master/spring_sended/
+2. detect_spring.py 파일에서 def send_data_to_spring(data):
+    url = 'http://{내 ip 주소}:8080/send-data'
+    로 수정합니다.
+3. second_chance_detect.py에서의 send_data_to_spring 함수도 위처럼 수정합니다.
+4. watch.py 코드에서 path 변수, path = "/Users/son/desktop/upload" 를 백엔드 application.yml에 설정된 file.dir 경로와 같게 설정합니다.
+4. 터미널에 python watch.py 명령어 입력합니다.

@@ -33,13 +33,17 @@ public class FavoriteController {
         Member user = memberService.findOne(userId);
         Post post = postService.findPostByPostId(PostId);
 
-        List<Favorite> favorites = user.getFavorites(); // 유저의 좋아요 리스트 가져온다.
-        for(Favorite favorite : favorites){
-            Long postId = favorite.getPost().getPostId();
-          if(postId.equals(PostId))  {
-              return 1;
-          }
-        }
+
+            List<Favorite> favorites = user.getFavorites(); // 유저의 좋아요 리스트 가져온다.
+
+
+            for (Favorite favorite : favorites) {
+                Long postId = favorite.getPost().getPostId();
+                if (postId.equals(PostId)) {
+                    return 1;
+                }
+            }
+
         return 0;
 
     }
